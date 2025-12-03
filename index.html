@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBMself - Free Digital Books</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+
+    <header class="bg-indigo-700 shadow-xl p-4 md:p-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold tracking-tight text-white">TBMself</h1>
+            <a href="https://vyomtbmz.bio.link" target="_blank" class="text-white hover:text-indigo-200 transition duration-300 font-semibold text-sm md:text-base border border-white px-3 py-1 rounded-full">
+                My Bio Link
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow p-4 md:p-8 max-w-7xl mx-auto w-full">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-indigo-300">Available Books</h2>
+        <p class="text-gray-400 mb-8 max-w-2xl">All the books, all about Software and Computers. <br> Nice Readings!</p>
+        
+        <div id="book-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 p-4 mt-8 text-center">
+        <p class="text-sm text-gray-400">© 2024 TBMself. Read, Learn, Grow.</p>
+    </footer>
+
+    <script>
+        const books = [
+            {
+                name: "The Powerful Things in Windows explained",
+                cover: "/150x220/2563eb/ffffff?text=Habits",
+                link: "https://example.com/the_power_of_habit.pdf",
+                author: "VyomTBM"
+            }
+        ];
+
+        const bookGrid = document.getElementById('book-grid');
+
+        function renderBooks() {
+            bookGrid.innerHTML = books.map(book => `
+                <a href="${book.link}" target="_blank" class="block bg-gray-800 p-3 rounded-xl shadow-lg hover:bg-gray-700 transition duration-300 transform hover:scale-[1.03] group" style="width: 30vw">
+                    <img src="${book.cover}" alt="Cover of ${book.name}" 
+                         class="w-full h-auto rounded-lg mb-3 object-cover shadow-md group-hover:shadow-xl transition duration-300" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/150x220/4b5563/ffffff?text=No+Cover';"
+                    >
+                    <h3 class="text-sm font-semibold text-white truncate group-hover:text-indigo-300">${book.name}</h3>
+                    <p class="text-xs text-gray-400 mt-1">${book.author}</p>
+                    <span class="mt-2 inline-block text-xs font-medium text-indigo-400 group-hover:text-indigo-200">Read Free</span>
+                </a>
+            `).join('');
+        }
+
+        renderBooks();
+    </script>
+</body>
+</html>
