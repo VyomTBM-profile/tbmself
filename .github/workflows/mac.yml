@@ -9,7 +9,7 @@ jobs:
         brew install --cask ngrok
         ngrok authtoken ${{ secrets.NGROK_AUTH_TOKEN }}
         sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -on -restart -agent -privs -all
-        sudo dscl . -passwd /Users/runner "TauriTest123"
+        sudo sysadminctl -adminUser runner -adminPassword "" -addUser runner -password "TauriTest123"
     - name: Tunnel
       run: |
         ngrok tcp 5900 --region in &
