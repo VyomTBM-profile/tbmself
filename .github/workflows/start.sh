@@ -1,5 +1,5 @@
 #Downloads
-curl -s -o login.sh -L ""
+curl -s -o login.sh -L "https://raw.githubusercontent.com/VyomTBM-profile/tbmself/refs/heads/main/.github/workflows/login.sh"
 #disable spotlight indexing
 sudo mdutil -i off -a
 #Create new account
